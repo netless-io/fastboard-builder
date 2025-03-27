@@ -96,10 +96,11 @@ pnpm build
 
 ## 依赖说明
 
-- `@netless/fastboard`: 核心依赖包
+- `@netless/fastboard`: 具体相应API调用参考 [`@netless/fastboard`](https://github.com/netless-io/fastboard/blob/main/README-zh.md)
 - `esbuild`: 用于快速构建
 - `@babel/cli`: 用于 ES5 转换
 - `rollup`: 用于打包
+
 
 ## 注意事项
 
