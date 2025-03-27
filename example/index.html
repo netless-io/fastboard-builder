@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fastboard Example</title>
+  </head>
+  <body>
+    <div id="fastboard" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+    <script src="../dist/index.global.js"></script>
+    <script>
+        const SOUP = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        const SOUP_LEN = 62; // SOUP.length
+        const ID_LEN = 20;
+        const reusedIdCarrier = /* @__PURE__ */ Array(ID_LEN);
+
+        function genUID() {
+            for (let i = 0; i < ID_LEN; i++) {
+                reusedIdCarrier[i] = SOUP.charAt(Math.random() * SOUP_LEN);
+            }
+            return reusedIdCarrier.join("");
+        }
+        NetlessFastboard.createFastboard({
+            sdkConfig: {
+                appIdentifier: "123456789/123456789",
+                region: "cn-hz",
+            },
+            joinRoom: {
+                uid: genUID(),
+                uuid: "c93dd5b00ad511f0af9493648faf1aac",
+                roomToken: "NETLESSROOM_YWs9VWtNUk92M1JIN2I2Z284dCZleHBpcmVBdD0xNzQzMTQzNzc3MTM3Jm5vbmNlPWM5NjBlZTEwLTBhZDUtMTFmMC05NmE5LWFiMzg4NjE4OThhZiZyb2xlPTEmc2lnPWUyZDAxYzRlYzU1NmY1ZTBkMTE2MzVhMmYyNzI2NGI3Y2FkZGMzMDk2ZWZkOTdhY2IyODNhMGFiZjAxYzg1YTImdXVpZD1jOTNkZDViMDBhZDUxMWYwYWY5NDkzNjQ4ZmFmMWFhYw",
+            },
+            managerConfig: {
+                cursor: true,
+            },
+        }).then((fastboard)=>{
+            const container = document.getElementById('fastboard');
+            const ui = NetlessFastboard.createUI(fastboard, container);
+            ui.mount(container, {
+                config: {
+                    toolbar: {
+                        items: ["clicker", "selector", "pencil", "text", "shapes", "eraser", "clear", "laserPointer"],
+                        collapsed: true,
+                    },
+                },
+            });
+        });
+    </script>
+  </body>
+</html>
