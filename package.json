@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@netless/fastboard": "^1.0.4"
+    "@netless/fastboard": "^1.0.7",
+    "@netless/app-slide": "^0.2.76"
   },
   "devDependencies": {
     "@babel/cli": "^7.27.0",

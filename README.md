@@ -94,6 +94,48 @@ pnpm build
    - `uuid`: 房间UUID
    - `roomToken`: 房间Token
 
+## 添加其他 netless app
+
+### 添加依赖
+以app-slide为例，添加依赖：
+```bash
+pnpm add @netless/app-slide
+```
+### 注册到fastboard
+```js
+  import { register } from '@netless/fastboard/full';
+  import SlideApp, { addHooks } from "@netless/app-slide";
+
+  // 按需求集成 SlideApp
+  register({
+      kind: "Slide",
+      appOptions: { debug: false },
+      src: SlideApp,
+      addHooks,
+  });
+
+```
+### 在客户项目添加slide app到fastboard apps列表中
+
+```js
+  // 添加一个slide app 到 apps中
+  NetlessFastboard.apps.push({
+      icon: "https://api.iconify.design/mdi:file-powerpoint-box.svg?color=%237f7f7f",
+      kind: "Slide",
+      label: "Slide",
+      onClick: (app) => {
+          app.insertDocs({
+              fileType: "pptx",
+              scenePath: `/pptx/${taskId}`,
+              taskId,
+              title: "a.pptx",
+              url,
+          });
+      },
+  });
+```
+
+
 ## 依赖说明
 
 - `@netless/fastboard`: 具体相应API调用参考 [`@netless/fastboard`](https://github.com/netless-io/fastboard/blob/main/README-zh.md)

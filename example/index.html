@@ -18,6 +18,35 @@
             }
             return reusedIdCarrier.join("");
         }
+        
+        // 移除自带的Monaco app和GeoGebra app
+        NetlessFastboard.apps.delete(app => app.kind === "Monaco");
+        NetlessFastboard.apps.delete(app => app.kind === "GeoGebra");
+
+        // 添加一个slide app 到 apps中
+        NetlessFastboard.apps.push({
+            icon: "https://api.iconify.design/mdi:file-powerpoint-box.svg?color=%237f7f7f",
+            kind: "Slide",
+            label: "Slide",
+            onClick: (app) => {
+                let taskId;
+                let url;
+                if (app.room.region === "cn-hz") {
+                    taskId = "82d16c40b15745f0b5fad096ac721773";
+                } else {
+                    taskId = "1bd92aa00e28413c8668cffdbc97116f";
+                    url = "https://convertcdn-sg.netless.link/dynamicConvert";
+                }
+                app.insertDocs({
+                    fileType: "pptx",
+                    scenePath: `/pptx/${taskId}`,
+                    taskId,
+                    title: "a.pptx",
+                    url,
+                });
+            },
+        });
+
         NetlessFastboard.createFastboard({
             sdkConfig: {
                 appIdentifier: "123456789/123456789",
@@ -25,8 +54,8 @@
             },
             joinRoom: {
                 uid: genUID(),
-                uuid: "c93dd5b00ad511f0af9493648faf1aac",
-                roomToken: "NETLESSROOM_YWs9VWtNUk92M1JIN2I2Z284dCZleHBpcmVBdD0xNzQzMTQzNzc3MTM3Jm5vbmNlPWM5NjBlZTEwLTBhZDUtMTFmMC05NmE5LWFiMzg4NjE4OThhZiZyb2xlPTEmc2lnPWUyZDAxYzRlYzU1NmY1ZTBkMTE2MzVhMmYyNzI2NGI3Y2FkZGMzMDk2ZWZkOTdhY2IyODNhMGFiZjAxYzg1YTImdXVpZD1jOTNkZDViMDBhZDUxMWYwYWY5NDkzNjQ4ZmFmMWFhYw",
+                uuid: "cbc67f00169f11f0826bfd782d7d3846",
+                roomToken: "NETLESSROOM_YWs9VWtNUk92M1JIN2I2Z284dCZleHBpcmVBdD0xNzUxOTQwNzcyMjczJm5vbmNlPWUzMTQ5MjEwLTVhZDctMTFmMC05NmE5LWFiMzg4NjE4OThhZiZyb2xlPTEmc2lnPTg3NzMwMzMxYzlmNGNlMWYxZWU0MTBkNWY1OGI2OGUxMGZmOGU1ZDI5MDk0ZTI3YWRmZTgyM2UwODQ2NGY5NTUmdXVpZD1jYmM2N2YwMDE2OWYxMWYwODI2YmZkNzgyZDdkMzg0Ng",
             },
             managerConfig: {
                 cursor: true,
@@ -42,6 +71,8 @@
                     },
                 },
             });
+            window.fastboard = fastboard;
+            window.ui = ui;
         });
     </script>
   </body>

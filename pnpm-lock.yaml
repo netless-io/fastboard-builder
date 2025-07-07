@@ -8,9 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@netless/app-slide':
+        specifier: ^0.2.76
+        version: 0.2.76(jspdf@2.5.1)
       '@netless/fastboard':
-        specifier: ^1.0.4
-        version: 1.0.4(@netless/appliance-plugin@1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(jspdf@2.5.1)(white-web-sdk@2.16.53)
+        specifier: ^1.0.7
+        version: 1.0.7(@netless/app-in-mainview-plugin@0.0.9(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/appliance-plugin@1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(jspdf@2.5.1)(white-web-sdk@2.16.53)
     devDependencies:
       '@babel/cli':
         specifier: ^7.27.0
@@ -523,6 +526,10 @@ packages:
     resolution: {integrity: sha512-VtPOkrdPHZsKc/clNqyi9WUA8TINkZ4cGk63UUE3u4pmB2k+ZMQRDuIOagv8UVd6j7k0T3+RRIb7beKTebNbcw==}
     engines: {node: '>=6.9.0'}
 
+  '@babel/runtime@7.27.6':
+    resolution: {integrity: sha512-vbavdySgbTTrmFE+EsiqUTzlOr5bzlnJtUv9PynGCAKvfQqjIXbvFdumPM/GxMDfyuGMJaJAU6TO4zc1Jf1i8Q==}
+    engines: {node: '>=6.9.0'}
+
   '@babel/template@7.27.0':
     resolution: {integrity: sha512-2ncevenBqXI6qRMukPlXwHKHchC7RyMuu4xv5JBXRfOGVcTy1mXCD12qrp7Jsoxll1EV3+9sE4GugBVRjT2jFA==}
     engines: {node: '>=6.9.0'}
@@ -716,8 +723,14 @@ packages:
   '@mesh.js/core@1.1.25':
     resolution: {integrity: sha512-Jxn0EGEbADruAVSgpLbX9S6j3GVeat7QvElc+zU8boFI4TyR5MhAMDTKM5VnCnWmExJByS5KN1EHs5tvYocFnA==}
 
-  '@netless/app-slide@0.2.62':
-    resolution: {integrity: sha512-WSHaRDF6UR2evL5PToMhcTCAVA3d31LNAPX9ZESgdLhwMGOrng7jWdLrrRUyVkv5uRxkcNGZI/51ao1XStOaeQ==}
+  '@netless/app-in-mainview-plugin@0.0.9':
+    resolution: {integrity: sha512-WDtAZdMNB/kEB471kS8PNTgM0+4zW9Qkg49GYaMav1P733A9XUOn3KzYMehZIiKx59H87os201gynzjnVJB0Gw==}
+    peerDependencies:
+      '@netless/window-manager': '>=1.0.3'
+      white-web-sdk: '>= 2.16.52'
+
+  '@netless/app-slide@0.2.76':
+    resolution: {integrity: sha512-vWNh9sftoB5BC+S/9quIWMVBe6GAvOoX/KVtEaz63koDvzO2HvRBmywTAfM8LNhQbNNSlSpSsn1tP3D/wzqXzQ==}
     peerDependencies:
       jspdf: 2.5.1
     peerDependenciesMeta:
@@ -733,21 +746,22 @@ packages:
   '@netless/canvas-polyfill@0.0.4':
     resolution: {integrity: sha512-7NzsJrba0R/mq/l10SkIZQwbrNVJyPxZYrjK6xL3Ts732iWAVuS2UB0u3s6iGeUVcqV39A679yva8APWRl4M0A==}
 
-  '@netless/fastboard-core@1.0.4':
-    resolution: {integrity: sha512-6lsuawhoe/mPibznN2w29CqGc6eD1XY66TJz1UWq6FVZWBml7D6WVZy7+Kme6Y5rIaytLGJxOssV8Im7wc6EkA==}
+  '@netless/fastboard-core@1.0.7':
+    resolution: {integrity: sha512-ci5o9kG3SaXIuBa0CFu/Sk2qAbVddU2SzUBlYyLe9fJl79npRQMhYWI0vrrIYGWX3Bub8iqZeqAVtID/lwn0DQ==}
     peerDependencies:
-      '@netless/appliance-plugin': '>=1.1.9'
-      '@netless/window-manager': '>=1.0.0'
+      '@netless/app-in-mainview-plugin': '>=0.0.9'
+      '@netless/appliance-plugin': '>=1.1.17'
+      '@netless/window-manager': '>=1.0.5'
       jspdf: '>=2.5.1'
-      white-web-sdk: '>=2.16.52'
+      white-web-sdk: '>=2.16.53'
 
-  '@netless/fastboard-ui@1.0.4':
-    resolution: {integrity: sha512-X/X5h5g5hs+8+Oh3eYVldOUrxwUmaNWdh+nu9x49iQwb/3aqBzqMjALETNakXBAvTl10p1z0e/5GBVo+3j6arg==}
+  '@netless/fastboard-ui@1.0.7':
+    resolution: {integrity: sha512-LCU8dpEOGFSqed0axsgfwvHIP1dWSXIeTqdpLoVsTo8DNLGndWBeDy6plnkN63suewUW78TCa6wYBsSMr9LX8Q==}
     peerDependencies:
-      '@netless/fastboard-core': 1.0.4
+      '@netless/fastboard-core': 1.0.7
 
-  '@netless/fastboard@1.0.4':
-    resolution: {integrity: sha512-WUpwP1AdGIaVRlX/Ucx7e54ZOQR3avTBPys49pMrQ3m6AuFHR2+3q8vELcVK/M3EZKslfjG/lwIFiLfVGPMLVg==}
+  '@netless/fastboard@1.0.7':
+    resolution: {integrity: sha512-t6pcM2pkG6jFmqVbMdIX46wSCPjLedvRxM+LCCdjinZRvW4kfNzxXMlXCgO6F6CPGezlpeQF4srKXVjcw8TyZA==}
 
   '@netless/synced-store@2.0.9':
     resolution: {integrity: sha512-0MMEC62SRYEmOrd3OhqfGPp75GX4obiwnIFLDGnaYLz2cRurSoe5xtmhKJwoiIAzL8DSPfchqCmFYyZE0Ptgsw==}
@@ -949,8 +963,8 @@ packages:
   '@types/estree@1.0.7':
     resolution: {integrity: sha512-w28IoSUCJpidD/TGviZwwMJckNESJZXFu7NBZ5YJ4mEUnNraUn9Pm8HSZm/jDF1pDWYKspWE7oVphigUPRakIQ==}
 
-  '@types/node@22.13.14':
-    resolution: {integrity: sha512-Zs/Ollc1SJ8nKUAgc7ivOEdIBM8JAKgrqqUYi2J997JuKO7/tpQC+WCetQ1sypiKCQWHdvdg9wBNpUPEWZae7w==}
+  '@types/node@24.0.10':
+    resolution: {integrity: sha512-ENHwaH+JIRTDIEEbDK6QSQntAYGtbvdDXnMXnZaZ6k13Du1dPMmprkEHIL7ok2Wl2aZevetwTAb5S+7yIF+enA==}
 
   '@types/raf@3.4.3':
     resolution: {integrity: sha512-c4YAvMedbPZ5tEyxzQdMoOhhJ4RD3rngZIdwC2/qDN3d7JpEhB6fiBRKVY1lg5B7Wk+uPBjn5f39j1/2MY1oOw==}
@@ -1074,8 +1088,8 @@ packages:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
     engines: {node: '>= 8.10.0'}
 
-  clsx@1.2.1:
-    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+  clsx@2.1.1:
+    resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
     engines: {node: '>=6'}
 
   color-convert@2.0.1:
@@ -1091,8 +1105,8 @@ packages:
   color-rgba@2.4.0:
     resolution: {integrity: sha512-Nti4qbzr/z2LbUWySr7H9dk3Rl7gZt7ihHAxlgT4Ho90EXWkjtkL1avTleu9yeGuqrt/chxTB6GKK8nZZ6V0+Q==}
 
-  color-space@2.3.1:
-    resolution: {integrity: sha512-5DJdKYwoDji3ik/i0xSn+SiwXsfwr+1FEcCMUz2GS5speGCfGSbBMOLd84SDUBOuX8y4CvdFJmOBBJuC4wp7sQ==}
+  color-space@2.3.2:
+    resolution: {integrity: sha512-BcKnbOEsOarCwyoLstcoEztwT0IJxqqQkNwDuA3a65sICvvHL2yoeV13psoDFh5IuiOMnIOKdQDwB4Mk3BypiA==}
 
   color-string@1.9.1:
     resolution: {integrity: sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==}
@@ -1121,8 +1135,8 @@ packages:
     resolution: {integrity: sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==}
     deprecated: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
 
-  core-js@3.41.0:
-    resolution: {integrity: sha512-SJ4/EHwS36QMJd6h/Rg+GyR4A5xE0FSI3eZ+iBVpfqf1x0eTSg1smWLHrA+2jQThZSh97fmSgFSU8B61nxosxA==}
+  core-js@3.43.0:
+    resolution: {integrity: sha512-N6wEbTTZSYOY2rYAn85CuvWWkCK6QweMn7/4Nr3w+gDBeBhk/x4EJeY6FPo4QzDoJZxVTv8U7CMvgWk6pOHHqA==}
 
   css-line-break@2.1.0:
     resolution: {integrity: sha512-FHcKFCZcAha3LwfVBhCQbW2nCNbkZXn7KVUJcsT5/P8YmfsVja0FMPJr0B903j/E69HUphKiV9iQArX8SDYA4w==}
@@ -1143,8 +1157,8 @@ packages:
       supports-color:
         optional: true
 
-  decimal.js@10.5.0:
-    resolution: {integrity: sha512-8vDa8Qxvr/+d94hSh5P3IJwI5t8/c0KsMp+g8bNw9cY2icONa5aPfvKeieW1WlG0WQYwwhJ7mjui2xtiePQSXw==}
+  decimal.js@10.6.0:
+    resolution: {integrity: sha512-YpgQiITW3JXGntzdUmyUR1V812Hn8T1YVXhCu+wO3OpS4eU9l4YdD3qjyiKdV6mvV29zapkMeD390UVEf2lkUg==}
 
   decode-uri-component@0.2.2:
     resolution: {integrity: sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==}
@@ -1360,8 +1374,8 @@ packages:
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
-  long@5.3.1:
-    resolution: {integrity: sha512-ka87Jz3gcx/I7Hal94xaN2tZEOPoUOEVftkQqZx2EeQRN7LGdfLlI3FvZ+7WDplm+vK2Urx9ULrvSowtdCieng==}
+  long@5.3.2:
+    resolution: {integrity: sha512-mNAgZ1GmyNhD7AuqnTG3/VQ26o760+ZYBPKjPvugO8+nLbYfX6TVpJPseBvopbdY+qpZ/lKUnmEc1LeZYS3QAA==}
 
   loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
@@ -1473,8 +1487,8 @@ packages:
   prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
 
-  protobufjs@7.4.0:
-    resolution: {integrity: sha512-mRUWCc3KUU4w1jU8sGxICXH/gNS94DvI1gxqDvBzhj1JpcsimQkYiOJfwsPUykUI5ZaspFbSgmBLER8IrQ3tqw==}
+  protobufjs@7.5.3:
+    resolution: {integrity: sha512-sildjKwVqOI2kmFDiXQ6aEB0fjYTafpEvIBs8tOR8qI4spuL9OPROLVu2qZqi/xgCfsHIwVqlaF8JBjWFHnKbw==}
     engines: {node: '>=12.0.0'}
 
   query-string@5.1.1:
@@ -1498,8 +1512,8 @@ packages:
     peerDependencies:
       react: ^16.14.0
 
-  react-draggable@4.4.6:
-    resolution: {integrity: sha512-LtY5Xw1zTPqHkVmtM3X8MUOxNDOUhv/khTgBgrUvwaS064bwVvxT+q5El0uUFNx5IEPKXuRejr7UqLwBIg5pdw==}
+  react-draggable@4.5.0:
+    resolution: {integrity: sha512-VC+HBLEZ0XJxnOxVAZsdRi8rD04Iz3SiiKOoYzamjylUcju/hP9np/aZdLHf/7WOD268WMoNJMvYfB5yAK45cw==}
     peerDependencies:
       react: '>= 16.3.0'
       react-dom: '>= 16.3.0'
@@ -1662,8 +1676,8 @@ packages:
     resolution: {integrity: sha512-bctQIOqx2iVbWGDGPWwIm18QScpu2XRmkC19D8rQGFsjKSgteq/o1hTZvIG/wuDq8fanpBDrLkLq+aEN/6y5XQ==}
     engines: {node: '>= 10'}
 
-  undici-types@6.20.0:
-    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
+  undici-types@7.8.0:
+    resolution: {integrity: sha512-9UJ2xGDvQ43tYyVMpuHlsgApydB8ZKfVYTsLDhXkFL/6gfkp+U8xTGdh8pMJv1SpZna0zxG1DwsKZsreLbXBxw==}
 
   unicode-canonical-property-names-ecmascript@2.0.1:
     resolution: {integrity: sha512-dA8WbNeb2a6oQzAQ55YlT5vQAWGV9WXOsi3SskE3bcCdM0P4SDd+24zS/OCacdRq5BkdsRj9q3Pg6YyQoxIGqg==}
@@ -1703,8 +1717,8 @@ packages:
   value-enhancer@3.1.5:
     resolution: {integrity: sha512-JhWkr1zJZQKwDG+h2L0TVQ+sWpYKwv1oG56xGWyMKYd16DRiGMKpORUTFSINbXUOOidjanpefwwECC2g0Kpolw==}
 
-  video.js@8.22.0:
-    resolution: {integrity: sha512-xge2kpjsvC0zgFJ1cqt+wTqsi21+huFswlonPFh7qiplypsb4FN/D2Rz6bWdG/S9eQaPHfWHsarmJL/7D3DHoA==}
+  video.js@8.23.3:
+    resolution: {integrity: sha512-Toe0VLlDZcUhiaWfcePS1OEdT3ATfktm0hk/PELfD7zUoPDHeT+cJf/wZmCy5M5eGVwtGUg25RWPCj1L/1XufA==}
 
   videojs-contrib-quality-levels@4.1.0:
     resolution: {integrity: sha512-TfrXJJg1Bv4t6TOCMEVMwF/CoS8iENYsWNKip8zfhB5kTcegiFYezEA0eHAJPU64ZC8NQbxQgOwAsYU8VXbOWA==}
@@ -2368,6 +2382,8 @@ snapshots:
     dependencies:
       regenerator-runtime: 0.14.1
 
+  '@babel/runtime@7.27.6': {}
+
   '@babel/template@7.27.0':
     dependencies:
       '@babel/code-frame': 7.26.2
@@ -2491,7 +2507,7 @@ snapshots:
 
   '@mesh.js/core@1.1.25':
     dependencies:
-      '@babel/runtime': 7.27.0
+      '@babel/runtime': 7.27.6
       abs-svg-path: 0.1.1
       adaptive-bezier-curve: 1.0.3
       as-number: 1.0.0
@@ -2505,7 +2521,14 @@ snapshots:
       tess2: 1.0.0
       xtend: 4.0.2
 
-  '@netless/app-slide@0.2.62(jspdf@2.5.1)':
+  '@netless/app-in-mainview-plugin@0.0.9(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53)':
+    dependencies:
+      '@netless/window-manager': 1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53)
+      eventemitter2: 6.4.9
+      lodash: 4.17.21
+      white-web-sdk: 2.16.53
+
+  '@netless/app-slide@0.2.76(jspdf@2.5.1)':
     optionalDependencies:
       jspdf: 2.5.1
 
@@ -2519,31 +2542,33 @@ snapshots:
       re-resizable: 6.11.2(react-dom@16.14.0(react@16.14.0))(react@16.14.0)
       react: 16.14.0
       react-dom: 16.14.0(react@16.14.0)
-      react-draggable: 4.4.6(react-dom@16.14.0(react@16.14.0))(react@16.14.0)
+      react-draggable: 4.5.0(react-dom@16.14.0(react@16.14.0))(react@16.14.0)
       spritejs: 3.8.3
       white-web-sdk: 2.16.53
 
   '@netless/canvas-polyfill@0.0.4': {}
 
-  '@netless/fastboard-core@1.0.4(@netless/appliance-plugin@1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(jspdf@2.5.1)(white-web-sdk@2.16.53)':
+  '@netless/fastboard-core@1.0.7(@netless/app-in-mainview-plugin@0.0.9(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/appliance-plugin@1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(jspdf@2.5.1)(white-web-sdk@2.16.53)':
     dependencies:
-      '@netless/app-slide': 0.2.62(jspdf@2.5.1)
+      '@netless/app-in-mainview-plugin': 0.0.9(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53)
+      '@netless/app-slide': 0.2.76(jspdf@2.5.1)
       '@netless/appliance-plugin': 1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53)
       '@netless/synced-store': 2.0.9(white-web-sdk@2.16.53)
       '@netless/window-manager': 1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53)
       jspdf: 2.5.1
       white-web-sdk: 2.16.53
 
-  '@netless/fastboard-ui@1.0.4(@netless/fastboard-core@1.0.4(@netless/appliance-plugin@1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(jspdf@2.5.1)(white-web-sdk@2.16.53))':
+  '@netless/fastboard-ui@1.0.7(@netless/fastboard-core@1.0.7(@netless/app-in-mainview-plugin@0.0.9(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/appliance-plugin@1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(jspdf@2.5.1)(white-web-sdk@2.16.53))':
     dependencies:
-      '@netless/fastboard-core': 1.0.4(@netless/appliance-plugin@1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(jspdf@2.5.1)(white-web-sdk@2.16.53)
+      '@netless/fastboard-core': 1.0.7(@netless/app-in-mainview-plugin@0.0.9(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/appliance-plugin@1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(jspdf@2.5.1)(white-web-sdk@2.16.53)
       tippy.js: 6.3.7
 
-  '@netless/fastboard@1.0.4(@netless/appliance-plugin@1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(jspdf@2.5.1)(white-web-sdk@2.16.53)':
+  '@netless/fastboard@1.0.7(@netless/app-in-mainview-plugin@0.0.9(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/appliance-plugin@1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(jspdf@2.5.1)(white-web-sdk@2.16.53)':
     dependencies:
-      '@netless/fastboard-core': 1.0.4(@netless/appliance-plugin@1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(jspdf@2.5.1)(white-web-sdk@2.16.53)
-      '@netless/fastboard-ui': 1.0.4(@netless/fastboard-core@1.0.4(@netless/appliance-plugin@1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(jspdf@2.5.1)(white-web-sdk@2.16.53))
+      '@netless/fastboard-core': 1.0.7(@netless/app-in-mainview-plugin@0.0.9(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/appliance-plugin@1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(jspdf@2.5.1)(white-web-sdk@2.16.53)
+      '@netless/fastboard-ui': 1.0.7(@netless/fastboard-core@1.0.7(@netless/app-in-mainview-plugin@0.0.9(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/appliance-plugin@1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(jspdf@2.5.1)(white-web-sdk@2.16.53))
     transitivePeerDependencies:
+      - '@netless/app-in-mainview-plugin'
       - '@netless/appliance-plugin'
       - '@netless/window-manager'
       - jspdf
@@ -2574,7 +2599,7 @@ snapshots:
       lodash: 4.17.21
       p-retry: 4.6.2
       uuid: 7.0.3
-      video.js: 8.22.0
+      video.js: 8.23.3
       white-web-sdk: 2.16.53
     optionalDependencies:
       jspdf: 2.5.1
@@ -2711,9 +2736,9 @@ snapshots:
 
   '@types/estree@1.0.7': {}
 
-  '@types/node@22.13.14':
+  '@types/node@24.0.10':
     dependencies:
-      undici-types: 6.20.0
+      undici-types: 7.8.0
 
   '@types/raf@3.4.3':
     optional: true
@@ -2724,25 +2749,25 @@ snapshots:
 
   '@types/shallowequal@1.1.5': {}
 
-  '@videojs/http-streaming@3.17.0(video.js@8.22.0)':
+  '@videojs/http-streaming@3.17.0(video.js@8.23.3)':
     dependencies:
-      '@babel/runtime': 7.27.0
+      '@babel/runtime': 7.27.6
       '@videojs/vhs-utils': 4.1.1
       aes-decrypter: 4.0.2
       global: 4.4.0
       m3u8-parser: 7.2.0
       mpd-parser: 1.3.1
       mux.js: 7.1.0
-      video.js: 8.22.0
+      video.js: 8.23.3
 
   '@videojs/vhs-utils@4.1.1':
     dependencies:
-      '@babel/runtime': 7.27.0
+      '@babel/runtime': 7.27.6
       global: 4.4.0
 
   '@videojs/xhr@2.7.0':
     dependencies:
-      '@babel/runtime': 7.27.0
+      '@babel/runtime': 7.27.6
       global: 4.4.0
       is-function: 1.0.2
 
@@ -2754,7 +2779,7 @@ snapshots:
 
   aes-decrypter@4.0.2:
     dependencies:
-      '@babel/runtime': 7.27.0
+      '@babel/runtime': 7.27.6
       '@videojs/vhs-utils': 4.1.1
       global: 4.4.0
       pkcs7: 1.0.4
@@ -2839,9 +2864,9 @@ snapshots:
 
   canvg@3.0.11:
     dependencies:
-      '@babel/runtime': 7.27.0
+      '@babel/runtime': 7.27.6
       '@types/raf': 3.4.3
-      core-js: 3.41.0
+      core-js: 3.43.0
       raf: 3.4.1
       regenerator-runtime: 0.13.11
       rgbcolor: 1.0.1
@@ -2862,7 +2887,7 @@ snapshots:
       fsevents: 2.3.3
     optional: true
 
-  clsx@1.2.1: {}
+  clsx@2.1.1: {}
 
   color-convert@2.0.1:
     dependencies:
@@ -2877,9 +2902,9 @@ snapshots:
   color-rgba@2.4.0:
     dependencies:
       color-parse: 1.4.3
-      color-space: 2.3.1
+      color-space: 2.3.2
 
-  color-space@2.3.1: {}
+  color-space@2.3.2: {}
 
   color-string@1.9.1:
     dependencies:
@@ -2905,7 +2930,7 @@ snapshots:
 
   core-js@2.6.12: {}
 
-  core-js@3.41.0: {}
+  core-js@3.43.0: {}
 
   css-line-break@2.1.0:
     dependencies:
@@ -2925,7 +2950,7 @@ snapshots:
     dependencies:
       ms: 2.1.3
 
-  decimal.js@10.5.0: {}
+  decimal.js@10.6.0: {}
 
   decode-uri-component@0.2.2: {}
 
@@ -3039,7 +3064,7 @@ snapshots:
 
   gl-renderer@0.13.6:
     dependencies:
-      '@babel/runtime': 7.27.0
+      '@babel/runtime': 7.27.6
 
   gl-vec2@1.3.0: {}
 
@@ -3121,13 +3146,13 @@ snapshots:
 
   jspdf@2.5.1:
     dependencies:
-      '@babel/runtime': 7.27.0
+      '@babel/runtime': 7.27.6
       atob: 2.1.2
       btoa: 1.2.1
       fflate: 0.4.8
     optionalDependencies:
       canvg: 3.0.11
-      core-js: 3.41.0
+      core-js: 3.43.0
       dompurify: 2.5.8
       html2canvas: 1.4.1
 
@@ -3139,7 +3164,7 @@ snapshots:
 
   lodash@4.17.21: {}
 
-  long@5.3.1: {}
+  long@5.3.2: {}
 
   loose-envify@1.4.0:
     dependencies:
@@ -3153,7 +3178,7 @@ snapshots:
 
   m3u8-parser@7.2.0:
     dependencies:
-      '@babel/runtime': 7.27.0
+      '@babel/runtime': 7.27.6
       '@videojs/vhs-utils': 4.1.1
       global: 4.4.0
 
@@ -3164,9 +3189,9 @@ snapshots:
 
   mathjs@10.6.4:
     dependencies:
-      '@babel/runtime': 7.27.0
+      '@babel/runtime': 7.27.6
       complex.js: 2.4.2
-      decimal.js: 10.5.0
+      decimal.js: 10.6.0
       escape-latex: 1.2.0
       fraction.js: 4.3.7
       javascript-natural-sort: 0.7.1
@@ -3186,7 +3211,7 @@ snapshots:
 
   mpd-parser@1.3.1:
     dependencies:
-      '@babel/runtime': 7.27.0
+      '@babel/runtime': 7.27.6
       '@videojs/vhs-utils': 4.1.1
       '@xmldom/xmldom': 0.8.10
       global: 4.4.0
@@ -3195,7 +3220,7 @@ snapshots:
 
   mux.js@7.1.0:
     dependencies:
-      '@babel/runtime': 7.27.0
+      '@babel/runtime': 7.27.6
       global: 4.4.0
 
   node-releases@2.0.19: {}
@@ -3240,7 +3265,7 @@ snapshots:
 
   pkcs7@1.0.4:
     dependencies:
-      '@babel/runtime': 7.27.0
+      '@babel/runtime': 7.27.6
 
   polyline-miter-util@1.0.1:
     dependencies:
@@ -3254,7 +3279,7 @@ snapshots:
       object-assign: 4.1.1
       react-is: 16.13.1
 
-  protobufjs@7.4.0:
+  protobufjs@7.5.3:
     dependencies:
       '@protobufjs/aspromise': 1.1.2
       '@protobufjs/base64': 1.1.2
@@ -3266,8 +3291,8 @@ snapshots:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 22.13.14
-      long: 5.3.1
+      '@types/node': 24.0.10
+      long: 5.3.2
 
   query-string@5.1.1:
     dependencies:
@@ -3295,9 +3320,9 @@ snapshots:
       react: 16.14.0
       scheduler: 0.19.1
 
-  react-draggable@4.4.6(react-dom@16.14.0(react@16.14.0))(react@16.14.0):
+  react-draggable@4.5.0(react-dom@16.14.0(react@16.14.0))(react@16.14.0):
     dependencies:
-      clsx: 1.2.1
+      clsx: 2.1.1
       prop-types: 15.8.1
       react: 16.14.0
       react-dom: 16.14.0(react@16.14.0)
@@ -3427,7 +3452,7 @@ snapshots:
 
   spritejs@3.8.3:
     dependencies:
-      '@babel/runtime': 7.27.0
+      '@babel/runtime': 7.27.6
       '@mesh.js/core': 1.1.25
       color-rgba: 2.4.0
       css-select: 2.1.0
@@ -3482,7 +3507,7 @@ snapshots:
 
   typed-function@2.1.0: {}
 
-  undici-types@6.20.0: {}
+  undici-types@7.8.0: {}
 
   unicode-canonical-property-names-ecmascript@2.0.1: {}
 
@@ -3519,10 +3544,10 @@ snapshots:
 
   value-enhancer@3.1.5: {}
 
-  video.js@8.22.0:
+  video.js@8.23.3:
     dependencies:
-      '@babel/runtime': 7.27.0
-      '@videojs/http-streaming': 3.17.0(video.js@8.22.0)
+      '@babel/runtime': 7.27.6
+      '@videojs/http-streaming': 3.17.0(video.js@8.23.3)
       '@videojs/vhs-utils': 4.1.1
       '@videojs/xhr': 2.7.0
       aes-decrypter: 4.0.2
@@ -3530,14 +3555,14 @@ snapshots:
       m3u8-parser: 7.2.0
       mpd-parser: 1.3.1
       mux.js: 7.1.0
-      videojs-contrib-quality-levels: 4.1.0(video.js@8.22.0)
+      videojs-contrib-quality-levels: 4.1.0(video.js@8.23.3)
       videojs-font: 4.2.0
       videojs-vtt.js: 0.15.5
 
-  videojs-contrib-quality-levels@4.1.0(video.js@8.22.0):
+  videojs-contrib-quality-levels@4.1.0(video.js@8.23.3):
     dependencies:
       global: 4.4.0
-      video.js: 8.22.0
+      video.js: 8.23.3
 
   videojs-font@4.2.0: {}
 
@@ -3554,12 +3579,12 @@ snapshots:
       bezier-js: 2.6.1
       bowser: 2.11.0
       color: 4.2.3
-      core-js: 3.41.0
+      core-js: 3.43.0
       detect-it: 3.0.7
       eventemitter3: 4.0.7
       mathjs: 10.6.4
       mobx: 6.13.7
-      protobufjs: 7.4.0
+      protobufjs: 7.5.3
       query-string: 5.1.1
       react: 16.14.0
       react-dom: 16.14.0(react@16.14.0)
