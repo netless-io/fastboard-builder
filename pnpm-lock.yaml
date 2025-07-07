@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@netless/app-slide':
-        specifier: ^0.2.76
-        version: 0.2.76(jspdf@2.5.1)
+        specifier: ^0.2.77
+        version: 0.2.77(jspdf@2.5.1)
       '@netless/fastboard':
         specifier: ^1.0.7
         version: 1.0.7(@netless/app-in-mainview-plugin@0.0.9(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/appliance-plugin@1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(jspdf@2.5.1)(white-web-sdk@2.16.53)
@@ -729,8 +729,8 @@ packages:
       '@netless/window-manager': '>=1.0.3'
       white-web-sdk: '>= 2.16.52'
 
-  '@netless/app-slide@0.2.76':
-    resolution: {integrity: sha512-vWNh9sftoB5BC+S/9quIWMVBe6GAvOoX/KVtEaz63koDvzO2HvRBmywTAfM8LNhQbNNSlSpSsn1tP3D/wzqXzQ==}
+  '@netless/app-slide@0.2.77':
+    resolution: {integrity: sha512-Jy+BNjN0LxSdLmUBX9yrxr4rKXw47nAtRMHWDyeZTUybTABf1fCI3HMz/CUKY9mTzjP3v3D0BOZ8ja7TJKcWwQ==}
     peerDependencies:
       jspdf: 2.5.1
     peerDependenciesMeta:
@@ -2528,7 +2528,7 @@ snapshots:
       lodash: 4.17.21
       white-web-sdk: 2.16.53
 
-  '@netless/app-slide@0.2.76(jspdf@2.5.1)':
+  '@netless/app-slide@0.2.77(jspdf@2.5.1)':
     optionalDependencies:
       jspdf: 2.5.1
 
@@ -2551,7 +2551,7 @@ snapshots:
   '@netless/fastboard-core@1.0.7(@netless/app-in-mainview-plugin@0.0.9(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/appliance-plugin@1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53))(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(jspdf@2.5.1)(white-web-sdk@2.16.53)':
     dependencies:
       '@netless/app-in-mainview-plugin': 0.0.9(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53)
-      '@netless/app-slide': 0.2.76(jspdf@2.5.1)
+      '@netless/app-slide': 0.2.77(jspdf@2.5.1)
       '@netless/appliance-plugin': 1.1.16(@netless/window-manager@1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53))(white-web-sdk@2.16.53)
       '@netless/synced-store': 2.0.9(white-web-sdk@2.16.53)
       '@netless/window-manager': 1.0.0(jspdf@2.5.1)(white-web-sdk@2.16.53)

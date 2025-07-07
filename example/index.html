@@ -18,10 +18,25 @@
             }
             return reusedIdCarrier.join("");
         }
-        
+
         // 移除自带的Monaco app和GeoGebra app
-        NetlessFastboard.apps.delete(app => app.kind === "Monaco");
-        NetlessFastboard.apps.delete(app => app.kind === "GeoGebra");
+        // NetlessFastboard.apps.delete(app => app.kind === "Monaco");
+        // NetlessFastboard.apps.delete(app => app.kind === "GeoGebra");
+
+        NetlessFastboard.register({
+            kind: "Slide",
+            src: 'https://cdn.jsdelivr.net/npm/@netless/app-slide@0.2.78/dist/main.iife.js',
+            name: "NetlessAppSlide",
+            appOptions: {
+                navigatorDelegate: {
+                    openUrl(url) {
+                        console.log("open url", url);
+                        // get customLink url
+                        // todo custom link url
+                    }
+                }
+            }
+        });
 
         // 添加一个slide app 到 apps中
         NetlessFastboard.apps.push({
@@ -29,21 +44,46 @@
             kind: "Slide",
             label: "Slide",
             onClick: (app) => {
-                let taskId;
-                let url;
-                if (app.room.region === "cn-hz") {
-                    taskId = "82d16c40b15745f0b5fad096ac721773";
-                } else {
-                    taskId = "1bd92aa00e28413c8668cffdbc97116f";
-                    url = "https://convertcdn-sg.netless.link/dynamicConvert";
-                }
-                app.insertDocs({
-                    fileType: "pptx",
-                    scenePath: `/pptx/${taskId}`,
-                    taskId,
-                    title: "a.pptx",
-                    url,
-                });
+                const taskId = '46e8ff5db5714fec818f5594a6c55083';
+                const url = 'https://white-cover.oss-cn-hangzhou.aliyuncs.com/flat/dynamicConvert';
+                app.manager.addApp({
+                    kind: "Slide",
+                    options: {
+                        scenePath: `/pptx/${taskId}`,
+                        title: "a.pptx",
+                    },
+                    attributes: {
+                        taskId,
+                        url,
+                        customLinks: [
+                            {
+                                "pageIndex": 1,
+                                "shapeId": "slide-9",
+                                "link": "www.baidu.com"
+                            },
+                            {
+                                "pageIndex": 1,
+                                "shapeId": "slide-2",
+                                "link": ""
+                            },
+                            {
+                                "pageIndex": 1,
+                                "shapeId": "slide-11",
+                                "link": ""
+                            },
+                            {
+                                "pageIndex": 2,
+                                "shapeId": "slide-3079",
+                                "link": ""
+                            },
+                            {
+                                "pageIndex": 4,
+                                "shapeId": "slide-3",
+                                "link": ""
+                            }
+                        ]
+                    }
+                })
             },
         });
 
