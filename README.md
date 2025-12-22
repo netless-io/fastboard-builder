@@ -1,44 +1,44 @@
 # Fastboard Build
 
-这是一个用于构建 `@netless/fastboard` 的简单工具，可以将 `@netless/fastboard` 打包成可直接使用的 JavaScript 文件。
+This is a simple tool for building `@netless/fastboard`, which can package `@netless/fastboard` into ready-to-use JavaScript files.
 
-## 功能特点
+## Features
 
-- 支持将 `@netless/fastboard` 打包成 相应的类型的 js 文件
-- 自动处理依赖关系
+- Supports packaging `@netless/fastboard` into corresponding types of JS files
+- Automatically handles dependencies
 
-## 安装
+## Installation
 
 ```bash
 pnpm install
 ```
 
-## 使用方法
+## Usage
 
-1. 安装依赖：
+1. Install dependencies:
 ```bash
 pnpm install
 ```
 
-2. 运行构建命令：
+2. Run the build command:
 ```bash
 pnpm build
 ```
 
-构建完成后，你可以在 `dist` 目录下找到生成的 JavaScript 文件。
+After the build is complete, you can find the generated JavaScript files in the `dist` directory.
 
-## 构建输出
+## Build Output
 
-构建过程会生成以下文件：
-- `dist/index.js` - cjs 格式的 JavaScript 文件
-- `dist/index.mjs` - esm 格式的 JavaScript 文件
-- `dist/index.global.js` - iife 格式的 JavaScript 文件
+The build process will generate the following files:
+- `dist/index.js` - JavaScript file in CJS format
+- `dist/index.mjs` - JavaScript file in ESM format
+- `dist/index.global.js` - JavaScript file in IIFE format
 
-## 示例代码
+## Example Code
 
-项目提供了示例代码，展示了如何使用构建后的文件。你可以在 `example` 目录下找到示例文件。
+The project provides example code demonstrating how to use the built files. You can find example files in the `example` directory.
 
-### 基础用法
+### Basic Usage
 
 ```html
 <!DOCTYPE html>
@@ -50,26 +50,26 @@ pnpm build
     <div id="fastboard" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
     <script src="../dist/index.global.js"></script>
     <script>
-      // 创建白板实例
+      // Create a whiteboard instance
       NetlessFastboard.createFastboard({
         sdkConfig: {
-          appIdentifier: "你的应用标识",
+          appIdentifier: "Your App Identifier",
           region: "cn-hz",
         },
         joinRoom: {
-          uid: "用户ID",
-          uuid: "房间UUID",
-          roomToken: "房间Token",
+          uid: "User ID",
+          uuid: "Room UUID",
+          roomToken: "Room Token",
         },
         managerConfig: {
           cursor: true,
         },
       }).then((fastboard) => {
-        // 创建UI界面
+        // Create UI interface
         const container = document.getElementById('fastboard');
         const ui = NetlessFastboard.createUI(fastboard, container);
         
-        // 挂载UI
+        // Mount UI
         ui.mount(container, {
           config: {
             toolbar: {
@@ -84,29 +84,29 @@ pnpm build
 </html>
 ```
 
-### 运行示例
+### Running the Example
 
-1. 确保已经完成构建
-2. 使用本地服务器打开 `example/index.html` 文件
-3. 替换示例代码中的以下参数：
-   - `appIdentifier`: 你的应用标识
-   - `uid`: 用户ID
-   - `uuid`: 房间UUID
-   - `roomToken`: 房间Token
+1. Make sure the build is complete
+2. Open the `example/index.html` file using a local server
+3. Replace the following parameters in the example code:
+   - `appIdentifier`: Your app identifier
+   - `uid`: User ID
+   - `uuid`: Room UUID
+   - `roomToken`: Room Token
 
-## 添加其他 netless app
+## Adding Other Netless Apps
 
-### 添加依赖
-以app-slide为例，添加依赖：
+### Adding Dependencies
+Taking app-slide as an example, add the dependency:
 ```bash
 pnpm add @netless/app-slide
 ```
-### 注册到fastboard
+### Registering to Fastboard
 ```js
   import { register } from '@netless/fastboard/full';
   import SlideApp, { addHooks } from "@netless/app-slide";
 
-  // 按需求集成 SlideApp
+  // Integrate SlideApp as needed
   register({
       kind: "Slide",
       appOptions: { debug: false },
@@ -115,10 +115,10 @@ pnpm add @netless/app-slide
   });
 
 ```
-### 在客户项目添加slide app到fastboard apps列表中
+### Adding Slide App to Fastboard Apps List in Client Project
 
 ```js
-  // 添加一个slide app 到 apps中
+  // Add a slide app to the apps list
   NetlessFastboard.apps.push({
       icon: "https://api.iconify.design/mdi:file-powerpoint-box.svg?color=%237f7f7f",
       kind: "Slide",
@@ -136,20 +136,20 @@ pnpm add @netless/app-slide
 ```
 
 
-## 依赖说明
+## Dependencies
 
-- `@netless/fastboard`: 具体相应API调用参考 [`@netless/fastboard`](https://github.com/netless-io/fastboard/blob/main/README-zh.md)
-- `esbuild`: 用于快速构建
-- `@babel/cli`: 用于 ES5 转换
-- `rollup`: 用于打包
+- `@netless/fastboard`: For specific API calls, refer to [`@netless/fastboard`](https://github.com/netless-io/fastboard/blob/main/README-zh.md)
+- `esbuild`: Used for fast builds
+- `@babel/cli`: Used for ES5 conversion
+- `rollup`: Used for bundling
 
 
-## 注意事项
+## Notes
 
-- 确保你的 Node.js 版本兼容项目依赖
-- 构建过程可能需要一些时间，请耐心等待
-- 如果遇到构建错误，请检查 Node.js 版本和依赖安装是否完整
-- 使用示例代码时，请确保替换了正确的应用标识和房间信息
+- Ensure your Node.js version is compatible with the project dependencies
+- The build process may take some time, please be patient
+- If you encounter build errors, please check if the Node.js version and dependency installation are complete
+- When using the example code, make sure to replace the correct app identifier and room information
 
 ## License
 
