@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@netless/fastboard": "^1.1.2",
-    "@netless/app-slide": "^0.2.77"
+    "@netless/app-slide": "^0.2.77",
+    "@netless/fastboard-full": "1.1.5-beta.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.27.0",
@@ -20,6 +20,8 @@
     "@hyrious/esbuild-dev": "^0.10.12",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-node-resolve": "^16.0.1",
+    "@swc/cli": "^0.8.0",
+    "@swc/core": "^1.15.21",
     "esbuild": "^0.25.1",
     "rollup": "^4.37.0"
   }

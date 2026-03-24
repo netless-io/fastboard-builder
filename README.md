@@ -1,10 +1,11 @@
 # Fastboard Build
 
-This is a simple tool for building `@netless/fastboard`, which can package `@netless/fastboard` into ready-to-use JavaScript files.
+This is a simple builder for `@netless/fastboard-full`, used to generate ready-to-use JavaScript bundles for browser delivery.
 
 ## Features
 
-- Supports packaging `@netless/fastboard` into corresponding types of JS files
+- Supports packaging `@netless/fastboard-full` into multiple JavaScript formats
+- Generates both modern IIFE and ES5 IIFE outputs
 - Automatically handles dependencies
 
 ## Installation
@@ -27,12 +28,21 @@ pnpm build
 
 After the build is complete, you can find the generated JavaScript files in the `dist` directory.
 
+If you only need the legacy ES5 IIFE compatibility flow, you can also run:
+
+```bash
+bash es5iife.sh
+```
+
+This script now reuses the standard build and will also produce `dist/index.global.es5.js`.
+
 ## Build Output
 
 The build process will generate the following files:
 - `dist/index.js` - JavaScript file in CJS format
 - `dist/index.mjs` - JavaScript file in ESM format
-- `dist/index.global.js` - JavaScript file in IIFE format
+- `dist/index.global.js` - Minified IIFE bundle for modern browsers
+- `dist/index.global.es5.js` - Minified ES5 IIFE bundle for Android 4.4 WebView, iOS 9, and other legacy browsers
 
 ## Example Code
 
@@ -84,6 +94,18 @@ The project provides example code demonstrating how to use the built files. You 
 </html>
 ```
 
+For Android 4.4 WebView, iOS 9, or other legacy browser environments, replace:
+
+```html
+<script src="../dist/index.global.js"></script>
+```
+
+with:
+
+```html
+<script src="../dist/index.global.es5.js"></script>
+```
+
 ### Running the Example
 
 1. Make sure the build is complete
@@ -103,7 +125,7 @@ pnpm add @netless/app-slide
 ```
 ### Registering to Fastboard
 ```js
-  import { register } from '@netless/fastboard/full';
+  import { register } from '@netless/fastboard-full';
   import SlideApp, { addHooks } from "@netless/app-slide";
 
   // Integrate SlideApp as needed
@@ -138,10 +160,9 @@ pnpm add @netless/app-slide
 
 ## Dependencies
 
-- `@netless/fastboard`: For specific API calls, refer to [`@netless/fastboard`](https://github.com/netless-io/fastboard/blob/main/README-zh.md)
+- `@netless/fastboard-full`: The bundled Fastboard entry used by this builder
 - `esbuild`: Used for fast builds
-- `@babel/cli`: Used for ES5 conversion
-- `rollup`: Used for bundling
+- `@swc/core`: Used to transform the browser global bundle down to ES5
 
 
 ## Notes

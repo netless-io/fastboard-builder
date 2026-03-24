@@ -1,80 +1,82 @@
-import fs from 'node:fs'
-import path from 'node:path'
-import * as rollup from 'rollup'
-import * as esbuild from 'esbuild'
-import { babel } from '@rollup/plugin-babel';
-import { version } from './package.json'
-import {nodeResolve} from '@rollup/plugin-node-resolve';
+import fs from "node:fs";
+import fsp from "node:fs/promises";
+import path from "node:path";
+import * as esbuild from "esbuild";
+import { transformFile } from "@swc/core";
 
-fs.rmSync('dist', { recursive: true, force: true })
+import { version } from "./package.json";
 
-let bundle = await rollup.rollup({
-  input: 'index.js',
-  plugins: [{
-    name: 'esbuild',
-    async load(id) {
-      const { outputFiles } = await esbuild.build({
-        entryPoints: [id],
-        bundle: true,
-        format: 'esm',
-        outfile: id.replace(/\.ts$/, '.js'),
-        sourcemap: true,
-        write: false,
-        target: ['es2017'],
-        define: {
-          __VERSION__: JSON.stringify(version)
-        },
-        legalComments: 'none'
-      })
-      let code, map;
-      for (const { path, text } of outputFiles) {
-        if (path.endsWith('.map')) map = text;
-        else code = text;
-      }
-      return { code, map }
-    }
-  }]
-})
+fs.rmSync("dist", { recursive: true, force: true });
 
-await Promise.all([
-  bundle.write({ file: 'dist/index.mjs', format: 'es', sourcemap: true, sourcemapExcludeSources: true }),
-  bundle.write({ file: 'dist/index.js', format: 'cjs', sourcemap: true, sourcemapExcludeSources: true, interop: 'auto', exports: 'named' }),
-])
+const distDir = "dist";
+const tempDir = path.join(distDir, ".tmp");
+const rawGlobalFile = path.join(tempDir, "index.global.raw.js");
+const rawGlobalEs5File = path.join(tempDir, "index.global.es5.raw.js");
 
-await bundle.close()
+const shared = {
+  entryPoints: ["index.js"],
+  bundle: true,
+  sourcemap: true,
+  target: ["es2017"],
+  platform: "browser",
+  legalComments: "none",
+  define: {
+    __VERSION__: JSON.stringify(version),
+  },
+};
 
-let bundle_iife = await rollup.rollup({
-  input: 'index.js',
-  plugins: [
-    {
-    name: 'esbuild',
-    async load(id) {
-      const { outputFiles } = await esbuild.build({
-        entryPoints: [id],
-        bundle: true,
-        format: 'esm',
-        outfile: id.replace(/\.ts$/, '.js'),
-        sourcemap: true,
-        write: false,
-        minify: true,
-        target: ['es2015'],
-        define: {
-          __VERSION__: JSON.stringify(version)
-        },
-        legalComments: 'none'
-      })
-      let code, map;
-      for (const { path, text } of outputFiles) {
-        if (path.endsWith('.map')) map = text;
-        else code = text;
-      }
-      return { code, map }
-    }
-    },
-    nodeResolve(),
-    babel({ babelHelpers: 'bundled', extensions: ['.ts'] })
-  ]
-})
+await esbuild.build({
+  ...shared,
+  format: "esm",
+  outfile: "dist/index.mjs",
+});
 
-await bundle_iife.write({ file: 'dist/index.global.js', format: 'iife', name: "NetlessFastboard" })
-await bundle_iife.close()
+await esbuild.build({
+  ...shared,
+  format: "cjs",
+  outfile: "dist/index.js",
+});
+
+await esbuild.build({
+  ...shared,
+  format: "iife",
+  globalName: "NetlessFastboard",
+  minify: true,
+  outfile: "dist/index.global.js",
+});
+
+await fsp.mkdir(tempDir, { recursive: true });
+
+await esbuild.build({
+  ...shared,
+  sourcemap: false,
+  format: "iife",
+  globalName: "NetlessFastboard",
+  minify: false,
+  outfile: rawGlobalFile,
+});
+
+const { code } = await transformFile(rawGlobalFile, {
+  jsc: {
+    target: "es5",
+  },
+  sourceMaps: false,
+});
+
+await fsp.writeFile(rawGlobalEs5File, code);
+
+await esbuild.build({
+  entryPoints: [rawGlobalEs5File],
+  bundle: false,
+  minify: true,
+  sourcemap: false,
+  target: ["es5"],
+  platform: "browser",
+  legalComments: "none",
+  logOverride: {
+    "duplicate-case": "silent",
+  },
+  outfile: path.join(distDir, "index.global.es5.js"),
+});
+
+await fsp.rm(tempDir, { recursive: true, force: true });
